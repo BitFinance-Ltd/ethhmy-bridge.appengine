@@ -23,7 +23,7 @@ const ethToOneERC20 = (
 
       if (!Number(hrc20Address)) {
         const [name, symbol, decimals] = await ethMethods.tokenDetails(params.erc20Address);
-        transaction = await hmyMethods.addToken(params.erc20Address, name, symbol, decimals);
+        transaction = await hmyMethods.addToken(params.erc20Address, name, '1' + symbol, decimals);
         hrc20Address = await hmyMethods.getMappingFor(params.erc20Address);
       }
 
@@ -421,5 +421,3 @@ export const generateActionsPool = (
 
   throw createError(500, 'Operation or token type not found');
 };
-
-// SENTRY_DSN_TOKEN="https://9bc5fffefdec4686afc7eead809cf944@o457691.ingest.sentry.io/5454064"
